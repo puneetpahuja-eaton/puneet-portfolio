@@ -1,274 +1,848 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--
-  ============================================================
-  PUNEET PAHUJA - PORTFOLIO
-  ============================================================
-  HOW TO DEPLOY FREE ON GITHUB PAGES:
-    1. Create a GitHub repo named exactly: <your-username>.github.io
-    2. Upload this file (index.html) to the repo.
-    3. Go to Settings -> Pages -> select the main branch -> Save.
-    4. Your site goes live at https://<your-username>.github.io
-  OR use Netlify Drop (https://app.netlify.com/drop) - just drag this file in.
-
-  !!! REMEMBER: Replace the placeholder GitHub URL "github.com/puneetpahuja"
-      below with your REAL GitHub username. (Search for GITHUB-PLACEHOLDER)
-  ============================================================
--->
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Puneet Pahuja | Software Engineer</title>
-<style>
-  :root{
-    --navy:#0d1b2a; --navy2:#12263a; --card:#16324a;
-    --teal:#2dd4bf; --blue:#38bdf8; --text:#e6edf3;
-    --muted:#9fb3c8; --chip:#1e3a52;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:var(--navy); color:var(--text); line-height:1.6;
-  }
-  a{color:var(--blue); text-decoration:none}
-  a:hover{color:var(--teal)}
-  .container{max-width:1000px; margin:0 auto; padding:0 20px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puneet Pahuja | Software Engineer</title>
+  <style>
+    :root {
+      --bg: #08121f;
+      --bg-soft: #0f1f33;
+      --panel: #132741;
+      --panel-2: #1a3353;
+      --line: rgba(255, 255, 255, 0.1);
+      --text: #edf5ff;
+      --muted: #9fb5cc;
+      --accent-a: #29d8a1;
+      --accent-b: #4dc6ff;
+      --accent-c: #ffbc5e;
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
 
-  /* NAV */
-  nav{
-    position:sticky; top:0; z-index:100;
-    background:rgba(13,27,42,.92); backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(255,255,255,.08);
-  }
-  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 20px; max-width:1000px; margin:0 auto}
-  .logo{font-weight:700; font-size:1.1rem; color:#fff}
-  .logo span{background:linear-gradient(90deg,var(--teal),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
-  .nav-links{display:flex; gap:22px; list-style:none}
-  .nav-links a{color:var(--muted); font-size:.95rem; font-weight:500}
-  .nav-links a:hover{color:var(--teal)}
-  .burger{display:none; background:none; border:none; color:#fff; font-size:1.6rem; cursor:pointer}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  /* HERO */
-  header.hero{padding:90px 0 70px; text-align:center;
-    background:radial-gradient(1200px 400px at 50% -10%, rgba(45,212,191,.12), transparent);}
-  .hero h1{font-size:2.8rem; color:#fff; margin-bottom:10px}
-  .hero .tag{color:var(--teal); font-weight:600; font-size:1.05rem; margin-bottom:18px}
-  .hero p.intro{max-width:640px; margin:0 auto 14px; color:var(--muted); font-size:1.05rem}
-  .hero .loc{color:var(--muted); font-size:.9rem; margin-bottom:26px}
-  .btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:22px}
-  .btn{padding:12px 26px; border-radius:30px; font-weight:600; font-size:.95rem; transition:.2s; display:inline-block}
-  .btn-primary{background:linear-gradient(90deg,var(--teal),var(--blue)); color:#03212b}
-  .btn-primary:hover{transform:translateY(-2px); color:#03212b; box-shadow:0 8px 20px rgba(45,212,191,.3)}
-  .btn-outline{border:1px solid var(--muted); color:var(--text)}
-  .btn-outline:hover{border-color:var(--teal); color:var(--teal)}
-  .links-row{display:flex; gap:20px; justify-content:center; flex-wrap:wrap; font-size:.9rem}
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* SECTIONS */
-  section{padding:60px 0; border-top:1px solid rgba(255,255,255,.06)}
-  h2.sec-title{font-size:1.7rem; color:#fff; margin-bottom:26px; position:relative; padding-bottom:10px}
-  h2.sec-title::after{content:""; position:absolute; left:0; bottom:0; width:54px; height:3px;
-    background:linear-gradient(90deg,var(--teal),var(--blue)); border-radius:3px}
-  p.about{color:var(--muted); font-size:1.03rem; max-width:840px}
+    body {
+      font-family: "Segoe UI", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(77, 198, 255, 0.14), transparent 60%),
+        radial-gradient(900px 500px at 20% -20%, rgba(41, 216, 161, 0.12), transparent 62%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
 
-  /* SKILLS */
-  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
-  .card{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:20px 22px; transition:.2s}
-  .card:hover{transform:translateY(-4px); border-color:rgba(45,212,191,.4); box-shadow:0 10px 26px rgba(0,0,0,.3)}
-  .card h3{color:#fff; font-size:1.05rem; margin-bottom:12px}
-  .chips{display:flex; flex-wrap:wrap; gap:8px}
-  .chip{background:var(--chip); color:var(--text); font-size:.82rem; padding:5px 12px; border-radius:20px; border:1px solid rgba(255,255,255,.06)}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  /* EXPERIENCE */
-  .exp{background:var(--card); border:1px solid rgba(255,255,255,.06); border-left:3px solid var(--teal);
-    border-radius:12px; padding:22px 24px; margin-bottom:18px; transition:.2s}
-  .exp:hover{transform:translateX(4px); box-shadow:0 8px 22px rgba(0,0,0,.28)}
-  .exp .role{display:flex; justify-content:space-between; flex-wrap:wrap; align-items:baseline; gap:6px}
-  .exp h3{color:#fff; font-size:1.12rem}
-  .exp .date{color:var(--teal); font-size:.86rem; font-weight:600}
-  .exp .sub{color:var(--blue); font-size:.9rem; margin:4px 0 12px; font-style:italic}
-  .exp ul{list-style:none; padding-left:0}
-  .exp li{color:var(--muted); font-size:.96rem; padding-left:20px; position:relative; margin-bottom:7px}
-  .exp li::before{content:"▹"; position:absolute; left:0; color:var(--teal)}
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
 
-  /* PROJECTS */
-  .proj h3{color:#fff; font-size:1.08rem; margin-bottom:8px}
-  .proj p{color:var(--muted); font-size:.95rem}
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
 
-  /* EDU */
-  .edu-item{color:var(--muted); font-size:.98rem; margin-bottom:10px; padding-left:20px; position:relative}
-  .edu-item::before{content:"🎓"; position:absolute; left:-4px}
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-  /* FOOTER */
-  footer{background:var(--navy2); padding:50px 0 30px; text-align:center; border-top:1px solid rgba(255,255,255,.08)}
-  footer h2{color:#fff; margin-bottom:16px}
-  .contact-links{display:flex; gap:24px; justify-content:center; flex-wrap:wrap; margin-bottom:18px}
-  footer .note{color:var(--teal); font-size:.9rem; margin-top:14px}
-  .copy{color:var(--muted); font-size:.82rem; margin-top:20px}
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+      background: rgba(8, 18, 31, 0.82);
+    }
 
-  @media(max-width:720px){
-    .nav-links{display:none; position:absolute; top:60px; right:0; left:0; background:var(--navy2);
-      flex-direction:column; gap:0; padding:10px 0}
-    .nav-links.open{display:flex}
-    .nav-links li{text-align:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.05)}
-    .burger{display:block}
-    .hero h1{font-size:2.1rem}
-    .exp .role{flex-direction:column}
-  }
-</style>
+    .top-nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+      gap: 12px;
+    }
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .brand .grad {
+      background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .menu a:hover {
+      color: var(--accent-a);
+    }
+
+    .hero {
+      padding: 86px 0 54px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(41, 216, 161, 0.3);
+      color: var(--accent-a);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: rgba(41, 216, 161, 0.08);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 2.6vw + 1rem, 3.5rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: 0.2px;
+    }
+
+    .hero-title-sub {
+      color: var(--accent-b);
+      font-size: 1.06rem;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 66ch;
+      font-size: 1.02rem;
+    }
+
+    .hero-cta {
+      margin-top: 26px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-main {
+      color: #062017;
+      background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+      box-shadow: 0 8px 20px rgba(77, 198, 255, 0.25);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-b);
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: grid;
+      align-content: center;
+      gap: 12px;
+      animation: cardFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes cardFloat {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    .hero-card h2 {
+      font-size: 1.06rem;
+      color: var(--accent-a);
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .contact-list a {
+      color: var(--text);
+      opacity: 0.92;
+    }
+
+    .contact-list a:hover {
+      color: var(--accent-b);
+    }
+
+    .section {
+      padding: 64px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      margin-bottom: 24px;
+    }
+
+    .section-kicker {
+      color: var(--accent-b);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      max-width: 75ch;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(170deg, var(--panel), var(--panel-2));
+      padding: 18px 16px;
+      min-height: 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
+    }
+
+    .stat-value {
+      font-size: 2.05rem;
+      line-height: 1;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .experience-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .exp-card {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent-a);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 18px 18px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .exp-card:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow);
+    }
+
+    .exp-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .exp-role {
+      font-size: 1.04rem;
+      font-weight: 700;
+    }
+
+    .exp-date {
+      color: var(--accent-a);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .exp-sub {
+      color: var(--accent-b);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .exp-list {
+      list-style: none;
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .exp-list li {
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .exp-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-c);
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .skill-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 16px;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .chip-wrap {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 999px;
+      color: var(--muted);
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      padding: 18px;
+      min-height: 180px;
+    }
+
+    .project-card h3 {
+      font-size: 1.04rem;
+      margin-bottom: 9px;
+      color: #ffffff;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .edu-box {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      background: #0a1524;
+      padding: 34px 0 26px;
+      text-align: center;
+    }
+
+    .footer h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .footer .links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-size: 0.93rem;
+    }
+
+    .footer .links a:hover {
+      color: var(--accent-a);
+    }
+
+    .copyright {
+      color: var(--muted);
+      font-size: 0.82rem;
+      opacity: 0.84;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid,
+      .skill-grid,
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .menu {
+        gap: 10px;
+        font-size: 0.84rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      .stats-grid,
+      .skill-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-cta {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
-    <div class="logo">Puneet <span>Pahuja</span></div>
-    <button class="burger" onclick="document.getElementById('navlinks').classList.toggle('open')">&#9776;</button>
-    <ul class="nav-links" id="navlinks">
-      <li>#about</li>
-      <li>#skills</li>
-      <li>#experience</li>
-      <li>#projects</li>
-      <li>#contact</li>
-    </ul>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="container">
-    <h1>Puneet Pahuja</h1>
-    <div class="tag">Software Engineer | Embedded Systems &amp; Full-Stack Development | AI-Assisted Development</div>
-    <p class="intro">8+ years building, reviewing, and debugging production software &mdash; now evaluating AI-generated code and building agentic AI workflows.</p>
-    <div class="loc">📍 Pune, India</div>
-    <div class="btns">
-      #experience
-      mailto:puneetpahuja2197@gmail.com" class="btn btn-outline">Contact Me</a>
-    </div>
-    <div class="links-row">
-      neetpahuja2197@gmail.com">✉ Email</a>
-      https://linkedin.com/in/puneet-pahuja-89a7861abin LinkedIn</a>
-      <!-- GITHUB-PLACEHOLDER: replace with your real GitHub username -->
-      https://github.com/puneetpahuja="_blank">⌨ GitHub</a>
-    </div>
-  </div>
-</header>
-
-<section id="about">
-  <div class="container">
-    <h2 class="sec-title">About</h2>
-    <p class="about">Software Engineer with 8+ years of real-world software development experience across embedded systems (C/C++) and full-stack web applications (JavaScript, React, Node.js, REST APIs). Skilled at evaluating AI-generated code and technical content for correctness, quality, and engineering best practices, and providing structured feedback through code reviews and static analysis. Daily hands-on user of GitHub Copilot and agentic AI workflows. Available for flexible, project-based / hourly contract work alongside full-time employment.</p>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="container">
-    <h2 class="sec-title">Skills</h2>
-    <div class="grid">
-      <div class="card"><h3>Languages</h3><div class="chips">
-        <span class="chip">C</span><span class="chip">C++ (C++11/17)</span><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span></div></div>
-      <div class="card"><h3>Web / Full-Stack</h3><div class="chips">
-        <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">REST APIs</span><span class="chip">Responsive Web Apps</span></div></div>
-      <div class="card"><h3>AI / GenAI</h3><div class="chips">
-        <span class="chip">GitHub Copilot</span><span class="chip">Prompt Engineering</span><span class="chip">LLM Output Evaluation</span><span class="chip">Evaluating AI-Generated Code</span><span class="chip">Agentic AI Automation</span></div></div>
-      <div class="card"><h3>Quality &amp; Review</h3><div class="chips">
-        <span class="chip">Code Review (Git, Bitbucket)</span><span class="chip">Static Analysis (Coverity, JDX)</span><span class="chip">Root Cause Analysis</span></div></div>
-      <div class="card"><h3>Testing</h3><div class="chips">
-        <span class="chip">Google Test</span><span class="chip">QT Framework</span><span class="chip">NUnit</span><span class="chip">Jenkins CI</span></div></div>
-      <div class="card"><h3>System Design</h3><div class="chips">
-        <span class="chip">Bootloader Design</span><span class="chip">Firmware Architecture</span><span class="chip">Secure Boot</span></div></div>
-      <div class="card"><h3>Protocols &amp; Embedded</h3><div class="chips">
-        <span class="chip">DLMS</span><span class="chip">Modbus</span><span class="chip">REST</span><span class="chip">TCP/IP</span><span class="chip">UART</span><span class="chip">I2C</span><span class="chip">SPI</span><span class="chip">ARM Cortex M0/M4</span><span class="chip">RENESAS</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="container">
-    <h2 class="sec-title">Experience</h2>
-
-    <div class="exp">
-      <div class="role"><h3>Eaton India Innovation Centre &mdash; Senior Engineer</h3><span class="date">May 2025 - Present</span></div>
-      <div class="sub">Domain: Panelboard &amp; Power Quality Meters</div>
-      <ul>
-        <li>Developed 6+ embedded metering features (Alarms &amp; Event Detection/Logging, Metering Calculations, ITIC Detection &amp; Logging, Waveform Logging, Data Logging) in C/C++.</li>
-        <li>Implemented REST and Modbus protocols for device communication.</li>
-        <li>Leveraged GitHub Copilot and agentic AI; evaluated AI-generated code for correctness.</li>
+  <nav class="top-nav">
+    <div class="container">
+      <div class="brand">Puneet <span class="grad">Pahuja</span></div>
+      <ul class="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
+  </nav>
 
-    <div class="exp">
-      <div class="role"><h3>John Deere India Pvt. Ltd. &mdash; Senior Engineer 1</h3><span class="date">Sep 2021 - Jun 2025</span></div>
-      <div class="sub">NGPD (Next Gen Primary Display) | Software Developer &amp; Scrum Master</div>
-      <ul>
-        <li>Accelerated feature development by up to 70% using GitHub Copilot and agentic AI; evaluated AI-generated code and provided structured feedback before merge.</li>
-        <li>Assessed AI-generated code for correctness, security, and maintainability across C++, Python, JavaScript.</li>
-        <li>Reviewed 10+ pull requests per sprint; delivered 80% on-time sprint completion leading a team of 10 as Scrum Master.</li>
-        <li>Shipped 20 production features per year in C++17 and QML/QT.</li>
-      </ul>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="badge">Software Engineer | Embedded + Full-Stack + AI-Assisted Development</div>
+        <h1>Building production software that ships, scales, and stays reliable.</h1>
+        <div class="hero-title-sub">8+ years in embedded systems, web engineering, and AI-assisted development workflows</div>
+        <p>
+          I design, develop, review, and debug production-grade software across C/C++ firmware and modern web stacks.
+          I also evaluate AI-generated code for correctness, maintainability, and engineering quality, with a strong focus on measurable business outcomes.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-main" href="#impact">View Impact Metrics</a>
+          <a class="btn btn-ghost" href="mailto:puneetpahuja2197@gmail.com">Contact for Contract Work</a>
+        </div>
+      </div>
+
+      <aside class="hero-card reveal">
+        <h2>Professional Snapshot</h2>
+        <p>Senior Engineer at Eaton India Innovation Centre (Panelboard and Power Quality Meters)</p>
+        <ul class="contact-list">
+          <li>Bhopal, Madhya Pradesh, India</li>
+          <li><a href="tel:+919893193009">+91-98931-93009</a></li>
+          <li><a href="mailto:puneetpahuja2197@gmail.com">puneetpahuja2197@gmail.com</a></li>
+          <li><a href="https://linkedin.com/in/puneet-pahuja-89a7861ab" target="_blank" rel="noopener noreferrer">linkedin.com/in/puneet-pahuja-89a7861ab</a></li>
+          <li><a href="https://github.com/puneetpahuja-eaton" target="_blank" rel="noopener noreferrer">github.com/puneetpahuja</a></li>
+        </ul>
+      </aside>
     </div>
+  </header>
 
-    <div class="exp">
-      <div class="role"><h3>Larsen &amp; Toubro Technology Services &mdash; Engineer</h3><span class="date">Jan 2019 - Aug 2021</span></div>
-      <div class="sub">Honeywell Smart Metering &amp; IEC Modem | Team Lead</div>
-      <ul>
-        <li>Led 2G to 4G/NBIoT modem firmware migration in 6 months (requirement analysis, system design, bootloader, secure boot).</li>
-        <li>Reduced Coverity-flagged issues by 70% via code reviews and static-analysis remediation across a team of 10.</li>
-        <li>Implemented IDIS-compliant metering features + Quectel AT-command support on ARM Cortex M0/M4 (STM32) in C/C++11.</li>
-      </ul>
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">Profile</div>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-desc">
+          Software Engineer with deep experience in embedded firmware, full-stack application development, and AI-assisted engineering workflows.
+          I regularly perform structured code reviews, static analysis, root-cause debugging, and quality improvements across distributed teams.
+          Open to flexible project-based and hourly contract engagements.
+        </p>
+      </div>
     </div>
+  </section>
 
-    <div class="exp">
-      <div class="role"><h3>Schneider Electric India (via LTTS) &mdash; Software Engineer</h3><span class="date">Jan 2019 - Sep 2020</span></div>
-      <div class="sub">TVM Customization &amp; Master Firmware</div>
-      <ul>
-        <li>Achieved Class 0.2 metering accuracy across 200+ utility configurations with configurable, modular C++ firmware.</li>
-        <li>Validated code correctness at 80% test coverage using the QT Framework.</li>
-      </ul>
+  <section id="impact" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">Highlights</div>
+        <h2 class="section-title">Impact Statistics</h2>
+        <p class="section-desc">
+          Measurable outcomes from production engineering projects across embedded systems and AI-assisted delivery.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card reveal"><div class="stat-value" data-count="8" data-suffix="+">0</div><div class="stat-label">Years of Software Development</div></article>
+        <article class="stat-card reveal"><div class="stat-value" data-count="70" data-suffix="%">0</div><div class="stat-label">Faster Feature Development with AI Assistance</div></article>
+        <article class="stat-card reveal"><div class="stat-value" data-count="10" data-suffix="+">0</div><div class="stat-label">Pull Requests Reviewed per Sprint</div></article>
+        <article class="stat-card reveal"><div class="stat-value" data-count="20" data-suffix="/yr">0</div><div class="stat-label">Production Features Delivered per Year</div></article>
+        <article class="stat-card reveal"><div class="stat-value" data-count="80" data-suffix="%">0</div><div class="stat-label">On-Time Sprint Commitments</div></article>
+        <article class="stat-card reveal"><div class="stat-value" data-count="70" data-suffix="%">0</div><div class="stat-label">Reduction in Static Analysis Issues</div></article>
+        <article class="stat-card reveal"><div class="stat-value" data-count="200" data-suffix="+">0</div><div class="stat-label">Utility Configurations Supported</div></article>
+        <article class="stat-card reveal"><div class="stat-value" data-count="80" data-suffix="%">0</div><div class="stat-label">Test Coverage Achieved</div></article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="projects">
-  <div class="container">
-    <h2 class="sec-title">Projects</h2>
-    <div class="grid">
-      <div class="card proj"><h3>AI Code &amp; LLM Output Evaluation</h3><p>Evaluate outputs from large language models on real programming tasks &mdash; assessing correctness, edge cases, and adherence to engineering best practices; daily GitHub Copilot user.</p></div>
-      <div class="card proj"><h3>Agentic AI Automation</h3><p>Building agentic AI workflows to automate repetitive engineering tasks; exploring LLM-based and frontier AI tooling.</p></div>
-      <div class="card proj"><h3>Full-Stack Web Development</h3><p>Built responsive web applications using JavaScript, React, Node.js, and REST APIs, including a website analytics solution.</p></div>
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">Career</div>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
+
+      <div class="experience-grid">
+        <article class="exp-card reveal">
+          <div class="exp-head">
+            <div class="exp-role">Eaton India Innovation Centre - Senior Engineer</div>
+            <div class="exp-date">May 2025 - Present</div>
+          </div>
+          <div class="exp-sub">Panelboard Meters and Power Quality Meters</div>
+          <ul class="exp-list">
+            <li>Developed and enhanced 6+ embedded metering features including alarm/event logging, ITIC logging, waveform logging, and data logging in C/C++.</li>
+            <li>Implemented REST and Modbus integration for robust device communication and data exchange.</li>
+            <li>Used GitHub Copilot and agentic workflows in daily development while validating generated code before integration.</li>
+            <li>Drove static analysis and root-cause defect investigations to increase firmware quality and reliability.</li>
+          </ul>
+        </article>
+
+        <article class="exp-card reveal">
+          <div class="exp-head">
+            <div class="exp-role">John Deere India Pvt. Ltd. - Senior Engineer 1</div>
+            <div class="exp-date">Sep 2021 - Jun 2025</div>
+          </div>
+          <div class="exp-sub">NGPD | Software Developer and Scrum Master</div>
+          <ul class="exp-list">
+            <li>Reduced coding effort by up to 70% through practical AI-assisted workflows while enforcing review quality.</li>
+            <li>Reviewed 10+ pull requests per sprint, improving consistency and maintainability across C++, Python, and JavaScript codebases.</li>
+            <li>Shipped 20 production features yearly in C++17 and QML/QT for primary display systems.</li>
+            <li>Maintained 80% on-time sprint completion while leading agile ceremonies for a team of 10 engineers.</li>
+          </ul>
+        </article>
+
+        <article class="exp-card reveal">
+          <div class="exp-head">
+            <div class="exp-role">Larsen and Toubro Technology Services - Engineer</div>
+            <div class="exp-date">Jan 2019 - Aug 2021</div>
+          </div>
+          <div class="exp-sub">Honeywell Smart Metering and IEC Modem | Team Lead</div>
+          <ul class="exp-list">
+            <li>Led 2G to 4G/NBIoT modem firmware migration in 6 months with ownership of system design, bootloader, and secure-boot integration.</li>
+            <li>Reduced Coverity issues by 70% through disciplined code review and static-analysis remediation across a 10-member team.</li>
+            <li>Implemented IDIS-compliant metering features and Quectel AT-command support on ARM Cortex M0/M4 STM32 platforms.</li>
+          </ul>
+        </article>
+
+        <article class="exp-card reveal">
+          <div class="exp-head">
+            <div class="exp-role">Schneider Electric India (via LTTS) - Software Engineer</div>
+            <div class="exp-date">Jan 2019 - Sep 2020</div>
+          </div>
+          <div class="exp-sub">TVM Customization and Master Firmware</div>
+          <ul class="exp-list">
+            <li>Delivered Class 0.2 metering accuracy for 200+ utility configurations using modular C++ firmware architecture.</li>
+            <li>Achieved 80% test coverage via QT-based unit, integration, and system validation.</li>
+          </ul>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="education">
-  <div class="container">
-    <h2 class="sec-title">Education &amp; Training</h2>
-    <div class="edu-item">B.E., Electronics &amp; Communication (ECE) &mdash; Technocrats Institute of Technology Excellence (RGPV), 2014-2018, CGPA 7.53</div>
-    <div class="edu-item">Embedded C, Linux, Shell Scripting, Microcontroller Programming &mdash; Emertxe Information Technologies (2018-2019)</div>
-  </div>
-</section>
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">Toolkit</div>
+        <h2 class="section-title">Core Skills</h2>
+      </div>
 
-<footer id="contact">
-  <div class="container">
-    <h2>Get In Touch</h2>
-    <div class="contact-links">
-      <a href="mailto:puneetpahuja2197@gmail.com">✉ puneetpahuja2197@gmail.com</a>
-      https://linkedin.com/in/puneet-pahuja-89a7861ab
-      <!-- GITHUB-PLACEHOLDER: replace with your real GitHub username -->
-      https://github.com/puneetpahuja
+      <div class="skill-grid">
+        <article class="skill-card reveal">
+          <h3>Programming</h3>
+          <div class="chip-wrap">
+            <span class="chip">C</span><span class="chip">C++11/17</span><span class="chip">Python</span>
+            <span class="chip">JavaScript</span><span class="chip">HTML/CSS</span><span class="chip">Shell Scripting</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <h3>Full-Stack and APIs</h3>
+          <div class="chip-wrap">
+            <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">REST APIs</span>
+            <span class="chip">Responsive UI</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <h3>AI and Evaluation</h3>
+          <div class="chip-wrap">
+            <span class="chip">GitHub Copilot</span><span class="chip">Prompt Engineering</span>
+            <span class="chip">LLM Output Evaluation</span><span class="chip">Agentic Workflows</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <h3>Quality and Testing</h3>
+          <div class="chip-wrap">
+            <span class="chip">Structured Code Review</span><span class="chip">Coverity</span>
+            <span class="chip">JDX</span><span class="chip">Google Test</span>
+            <span class="chip">QT Framework</span><span class="chip">NUnit</span><span class="chip">Jenkins CI</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <h3>Embedded and Protocols</h3>
+          <div class="chip-wrap">
+            <span class="chip">DLMS</span><span class="chip">Modbus</span><span class="chip">TCP/IP</span>
+            <span class="chip">UART</span><span class="chip">I2C</span><span class="chip">SPI</span>
+            <span class="chip">RS-232/485</span><span class="chip">ARM Cortex M0/M4</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <h3>Delivery and Collaboration</h3>
+          <div class="chip-wrap">
+            <span class="chip">Agile/Scrum</span><span class="chip">JIRA</span><span class="chip">Rally</span>
+            <span class="chip">ADO</span><span class="chip">Git</span><span class="chip">Bitbucket</span>
+            <span class="chip">Confluence</span>
+          </div>
+        </article>
+      </div>
     </div>
-    <div class="loc" style="color:var(--muted)">📍 Pune, India</div>
-    <div class="note">Available for flexible, project-based / contract work.</div>
-    <div class="copy">&copy; 2026 Puneet Pahuja</div>
-  </div>
-</footer>
+  </section>
 
-<script>
-  // Close mobile nav after clicking a link
-  document.querySelectorAll('#navlinks a').forEach(function(a){
-    a.addEventListener('click', function(){
-      document.getElementById('navlinks').classList.remove('open');
-    });
-  });
-</script>
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">Work Samples</div>
+        <h2 class="section-title">Project Focus Areas</h2>
+      </div>
 
+      <div class="project-grid">
+        <article class="project-card reveal">
+          <h3>AI-Assisted Engineering Delivery</h3>
+          <p>
+            Daily GitHub Copilot usage for faster implementation and prototyping, paired with strict review gates for correctness, edge-case coverage, and maintainability.
+          </p>
+        </article>
+
+        <article class="project-card reveal">
+          <h3>LLM Output and Code Evaluation</h3>
+          <p>
+            Practical evaluation of AI-generated technical output on real tasks, with structured feedback loops focused on logic quality, standards, and production readiness.
+          </p>
+        </article>
+
+        <article class="project-card reveal">
+          <h3>Embedded and Full-Stack Solutions</h3>
+          <p>
+            Production development across metering firmware and web applications, including protocol integrations, diagnostics, and analytics-driven interfaces.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">Academic</div>
+        <h2 class="section-title">Education and Training</h2>
+      </div>
+
+      <div class="edu-box reveal">
+        <div>B.E., Electronics and Communication (ECE) - Technocrats Institute of Technology Excellence (RGPV), 2014-2018, CGPA 7.53</div>
+        <div>Training: Embedded C, Linux, Shell Scripting, Linux Internals, Microcontroller Programming, Data Structures - Emertxe Information Technologies (2018-2019)</div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="footer">
+    <div class="container">
+      <h3>Open to Project-Based and Hourly Opportunities</h3>
+      <div class="links">
+        <a href="mailto:puneetpahuja2197@gmail.com">puneetpahuja2197@gmail.com</a>
+        <a href="tel:+919893193009">+91-98931-93009</a>
+        <a href="https://linkedin.com/in/puneet-pahuja-89a7861ab" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/puneetpahuja" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <div class="copyright">Copyright 2026 Puneet Pahuja</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const revealItems = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.16 }
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+
+      const counters = document.querySelectorAll('.stat-value[data-count]');
+      const counterObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            const el = entry.target;
+            const target = Number(el.getAttribute('data-count') || 0);
+            const suffix = el.getAttribute('data-suffix') || '';
+            const duration = 1200;
+            const start = performance.now();
+
+            function update(now) {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const value = Math.floor(eased * target);
+              el.textContent = String(value) + suffix;
+              if (progress < 1) {
+                requestAnimationFrame(update);
+              } else {
+                el.textContent = String(target) + suffix;
+              }
+            }
+
+            requestAnimationFrame(update);
+            counterObserver.unobserve(el);
+          });
+        },
+        { threshold: 0.4 }
+      );
+
+      counters.forEach((counter) => counterObserver.observe(counter));
+    })();
+  </script>
 </body>
 </html>
