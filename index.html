@@ -39,3 +39,236 @@
   nav{
     position:sticky; top:0; z-index:100;
     background:rgba(13,27,42,.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 20px; max-width:1000px; margin:0 auto}
+  .logo{font-weight:700; font-size:1.1rem; color:#fff}
+  .logo span{background:linear-gradient(90deg,var(--teal),var(--blue)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+  .nav-links{display:flex; gap:22px; list-style:none}
+  .nav-links a{color:var(--muted); font-size:.95rem; font-weight:500}
+  .nav-links a:hover{color:var(--teal)}
+  .burger{display:none; background:none; border:none; color:#fff; font-size:1.6rem; cursor:pointer}
+
+  /* HERO */
+  header.hero{padding:90px 0 70px; text-align:center;
+    background:radial-gradient(1200px 400px at 50% -10%, rgba(45,212,191,.12), transparent);}
+  .hero h1{font-size:2.8rem; color:#fff; margin-bottom:10px}
+  .hero .tag{color:var(--teal); font-weight:600; font-size:1.05rem; margin-bottom:18px}
+  .hero p.intro{max-width:640px; margin:0 auto 14px; color:var(--muted); font-size:1.05rem}
+  .hero .loc{color:var(--muted); font-size:.9rem; margin-bottom:26px}
+  .btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:22px}
+  .btn{padding:12px 26px; border-radius:30px; font-weight:600; font-size:.95rem; transition:.2s; display:inline-block}
+  .btn-primary{background:linear-gradient(90deg,var(--teal),var(--blue)); color:#03212b}
+  .btn-primary:hover{transform:translateY(-2px); color:#03212b; box-shadow:0 8px 20px rgba(45,212,191,.3)}
+  .btn-outline{border:1px solid var(--muted); color:var(--text)}
+  .btn-outline:hover{border-color:var(--teal); color:var(--teal)}
+  .links-row{display:flex; gap:20px; justify-content:center; flex-wrap:wrap; font-size:.9rem}
+
+  /* SECTIONS */
+  section{padding:60px 0; border-top:1px solid rgba(255,255,255,.06)}
+  h2.sec-title{font-size:1.7rem; color:#fff; margin-bottom:26px; position:relative; padding-bottom:10px}
+  h2.sec-title::after{content:""; position:absolute; left:0; bottom:0; width:54px; height:3px;
+    background:linear-gradient(90deg,var(--teal),var(--blue)); border-radius:3px}
+  p.about{color:var(--muted); font-size:1.03rem; max-width:840px}
+
+  /* SKILLS */
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
+  .card{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:20px 22px; transition:.2s}
+  .card:hover{transform:translateY(-4px); border-color:rgba(45,212,191,.4); box-shadow:0 10px 26px rgba(0,0,0,.3)}
+  .card h3{color:#fff; font-size:1.05rem; margin-bottom:12px}
+  .chips{display:flex; flex-wrap:wrap; gap:8px}
+  .chip{background:var(--chip); color:var(--text); font-size:.82rem; padding:5px 12px; border-radius:20px; border:1px solid rgba(255,255,255,.06)}
+
+  /* EXPERIENCE */
+  .exp{background:var(--card); border:1px solid rgba(255,255,255,.06); border-left:3px solid var(--teal);
+    border-radius:12px; padding:22px 24px; margin-bottom:18px; transition:.2s}
+  .exp:hover{transform:translateX(4px); box-shadow:0 8px 22px rgba(0,0,0,.28)}
+  .exp .role{display:flex; justify-content:space-between; flex-wrap:wrap; align-items:baseline; gap:6px}
+  .exp h3{color:#fff; font-size:1.12rem}
+  .exp .date{color:var(--teal); font-size:.86rem; font-weight:600}
+  .exp .sub{color:var(--blue); font-size:.9rem; margin:4px 0 12px; font-style:italic}
+  .exp ul{list-style:none; padding-left:0}
+  .exp li{color:var(--muted); font-size:.96rem; padding-left:20px; position:relative; margin-bottom:7px}
+  .exp li::before{content:"▹"; position:absolute; left:0; color:var(--teal)}
+
+  /* PROJECTS */
+  .proj h3{color:#fff; font-size:1.08rem; margin-bottom:8px}
+  .proj p{color:var(--muted); font-size:.95rem}
+
+  /* EDU */
+  .edu-item{color:var(--muted); font-size:.98rem; margin-bottom:10px; padding-left:20px; position:relative}
+  .edu-item::before{content:"🎓"; position:absolute; left:-4px}
+
+  /* FOOTER */
+  footer{background:var(--navy2); padding:50px 0 30px; text-align:center; border-top:1px solid rgba(255,255,255,.08)}
+  footer h2{color:#fff; margin-bottom:16px}
+  .contact-links{display:flex; gap:24px; justify-content:center; flex-wrap:wrap; margin-bottom:18px}
+  footer .note{color:var(--teal); font-size:.9rem; margin-top:14px}
+  .copy{color:var(--muted); font-size:.82rem; margin-top:20px}
+
+  @media(max-width:720px){
+    .nav-links{display:none; position:absolute; top:60px; right:0; left:0; background:var(--navy2);
+      flex-direction:column; gap:0; padding:10px 0}
+    .nav-links.open{display:flex}
+    .nav-links li{text-align:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.05)}
+    .burger{display:block}
+    .hero h1{font-size:2.1rem}
+    .exp .role{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Puneet <span>Pahuja</span></div>
+    <button class="burger" onclick="document.getElementById('navlinks').classList.toggle('open')">&#9776;</button>
+    <ul class="nav-links" id="navlinks">
+      <li>#about</li>
+      <li>#skills</li>
+      <li>#experience</li>
+      <li>#projects</li>
+      <li>#contact</li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <h1>Puneet Pahuja</h1>
+    <div class="tag">Software Engineer | Embedded Systems &amp; Full-Stack Development | AI-Assisted Development</div>
+    <p class="intro">8+ years building, reviewing, and debugging production software &mdash; now evaluating AI-generated code and building agentic AI workflows.</p>
+    <div class="loc">📍 Pune, India</div>
+    <div class="btns">
+      #experience
+      mailto:puneetpahuja2197@gmail.com" class="btn btn-outline">Contact Me</a>
+    </div>
+    <div class="links-row">
+      neetpahuja2197@gmail.com">✉ Email</a>
+      https://linkedin.com/in/puneet-pahuja-89a7861abin LinkedIn</a>
+      <!-- GITHUB-PLACEHOLDER: replace with your real GitHub username -->
+      https://github.com/puneetpahuja="_blank">⌨ GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <h2 class="sec-title">About</h2>
+    <p class="about">Software Engineer with 8+ years of real-world software development experience across embedded systems (C/C++) and full-stack web applications (JavaScript, React, Node.js, REST APIs). Skilled at evaluating AI-generated code and technical content for correctness, quality, and engineering best practices, and providing structured feedback through code reviews and static analysis. Daily hands-on user of GitHub Copilot and agentic AI workflows. Available for flexible, project-based / hourly contract work alongside full-time employment.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2 class="sec-title">Skills</h2>
+    <div class="grid">
+      <div class="card"><h3>Languages</h3><div class="chips">
+        <span class="chip">C</span><span class="chip">C++ (C++11/17)</span><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span></div></div>
+      <div class="card"><h3>Web / Full-Stack</h3><div class="chips">
+        <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">REST APIs</span><span class="chip">Responsive Web Apps</span></div></div>
+      <div class="card"><h3>AI / GenAI</h3><div class="chips">
+        <span class="chip">GitHub Copilot</span><span class="chip">Prompt Engineering</span><span class="chip">LLM Output Evaluation</span><span class="chip">Evaluating AI-Generated Code</span><span class="chip">Agentic AI Automation</span></div></div>
+      <div class="card"><h3>Quality &amp; Review</h3><div class="chips">
+        <span class="chip">Code Review (Git, Bitbucket)</span><span class="chip">Static Analysis (Coverity, JDX)</span><span class="chip">Root Cause Analysis</span></div></div>
+      <div class="card"><h3>Testing</h3><div class="chips">
+        <span class="chip">Google Test</span><span class="chip">QT Framework</span><span class="chip">NUnit</span><span class="chip">Jenkins CI</span></div></div>
+      <div class="card"><h3>System Design</h3><div class="chips">
+        <span class="chip">Bootloader Design</span><span class="chip">Firmware Architecture</span><span class="chip">Secure Boot</span></div></div>
+      <div class="card"><h3>Protocols &amp; Embedded</h3><div class="chips">
+        <span class="chip">DLMS</span><span class="chip">Modbus</span><span class="chip">REST</span><span class="chip">TCP/IP</span><span class="chip">UART</span><span class="chip">I2C</span><span class="chip">SPI</span><span class="chip">ARM Cortex M0/M4</span><span class="chip">RENESAS</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <h2 class="sec-title">Experience</h2>
+
+    <div class="exp">
+      <div class="role"><h3>Eaton India Innovation Centre &mdash; Senior Engineer</h3><span class="date">May 2025 - Present</span></div>
+      <div class="sub">Domain: Panelboard &amp; Power Quality Meters</div>
+      <ul>
+        <li>Developed 6+ embedded metering features (Alarms &amp; Event Detection/Logging, Metering Calculations, ITIC Detection &amp; Logging, Waveform Logging, Data Logging) in C/C++.</li>
+        <li>Implemented REST and Modbus protocols for device communication.</li>
+        <li>Leveraged GitHub Copilot and agentic AI; evaluated AI-generated code for correctness.</li>
+      </ul>
+    </div>
+
+    <div class="exp">
+      <div class="role"><h3>John Deere India Pvt. Ltd. &mdash; Senior Engineer 1</h3><span class="date">Sep 2021 - Jun 2025</span></div>
+      <div class="sub">NGPD (Next Gen Primary Display) | Software Developer &amp; Scrum Master</div>
+      <ul>
+        <li>Accelerated feature development by up to 70% using GitHub Copilot and agentic AI; evaluated AI-generated code and provided structured feedback before merge.</li>
+        <li>Assessed AI-generated code for correctness, security, and maintainability across C++, Python, JavaScript.</li>
+        <li>Reviewed 10+ pull requests per sprint; delivered 80% on-time sprint completion leading a team of 10 as Scrum Master.</li>
+        <li>Shipped 20 production features per year in C++17 and QML/QT.</li>
+      </ul>
+    </div>
+
+    <div class="exp">
+      <div class="role"><h3>Larsen &amp; Toubro Technology Services &mdash; Engineer</h3><span class="date">Jan 2019 - Aug 2021</span></div>
+      <div class="sub">Honeywell Smart Metering &amp; IEC Modem | Team Lead</div>
+      <ul>
+        <li>Led 2G to 4G/NBIoT modem firmware migration in 6 months (requirement analysis, system design, bootloader, secure boot).</li>
+        <li>Reduced Coverity-flagged issues by 70% via code reviews and static-analysis remediation across a team of 10.</li>
+        <li>Implemented IDIS-compliant metering features + Quectel AT-command support on ARM Cortex M0/M4 (STM32) in C/C++11.</li>
+      </ul>
+    </div>
+
+    <div class="exp">
+      <div class="role"><h3>Schneider Electric India (via LTTS) &mdash; Software Engineer</h3><span class="date">Jan 2019 - Sep 2020</span></div>
+      <div class="sub">TVM Customization &amp; Master Firmware</div>
+      <ul>
+        <li>Achieved Class 0.2 metering accuracy across 200+ utility configurations with configurable, modular C++ firmware.</li>
+        <li>Validated code correctness at 80% test coverage using the QT Framework.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="sec-title">Projects</h2>
+    <div class="grid">
+      <div class="card proj"><h3>AI Code &amp; LLM Output Evaluation</h3><p>Evaluate outputs from large language models on real programming tasks &mdash; assessing correctness, edge cases, and adherence to engineering best practices; daily GitHub Copilot user.</p></div>
+      <div class="card proj"><h3>Agentic AI Automation</h3><p>Building agentic AI workflows to automate repetitive engineering tasks; exploring LLM-based and frontier AI tooling.</p></div>
+      <div class="card proj"><h3>Full-Stack Web Development</h3><p>Built responsive web applications using JavaScript, React, Node.js, and REST APIs, including a website analytics solution.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <h2 class="sec-title">Education &amp; Training</h2>
+    <div class="edu-item">B.E., Electronics &amp; Communication (ECE) &mdash; Technocrats Institute of Technology Excellence (RGPV), 2014-2018, CGPA 7.53</div>
+    <div class="edu-item">Embedded C, Linux, Shell Scripting, Microcontroller Programming &mdash; Emertxe Information Technologies (2018-2019)</div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <h2>Get In Touch</h2>
+    <div class="contact-links">
+      <a href="mailto:puneetpahuja2197@gmail.com">✉ puneetpahuja2197@gmail.com</a>
+      https://linkedin.com/in/puneet-pahuja-89a7861ab
+      <!-- GITHUB-PLACEHOLDER: replace with your real GitHub username -->
+      https://github.com/puneetpahuja
+    </div>
+    <div class="loc" style="color:var(--muted)">📍 Pune, India</div>
+    <div class="note">Available for flexible, project-based / contract work.</div>
+    <div class="copy">&copy; 2026 Puneet Pahuja</div>
+  </div>
+</footer>
+
+<script>
+  // Close mobile nav after clicking a link
+  document.querySelectorAll('#navlinks a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navlinks').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
